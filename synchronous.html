@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Synchronous Javascript</title>
+    <style>
+        body{
+    font-family: Arial,sans-serif;
+    margin: 30px;
+        }
+        button{
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor:pointer;
+        }
+        #status{
+            margin-top: 15px;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+    </head>
+    <body>
+        
+        <h2> Demo proses Synchronous (Blocking)</h2>
+        <p>
+            Cobalah ketik sesuatu di kolom input ini 
+            <strong>saat perhitungan berjalan </strong>:
+
+        </p>
+        <input
+        type="text"
+        placeholder="Ketik sesuatu di sini untuk tes feeze..."
+        />
+        <br /><br/>
+        <button id="btn Mulai">Milai Hitung</button>
+        <div id="status"> Status : Siap. </div>
+
+    <script> 
+        document.getElementById("btnMulai").addEventListener("click",()=> {
+        const statusDiv = document.getElementById("status");
+        statusDiv.innerText= "Status: Sedang menghitung... (Web akan freeze)";
+        console.log("1.Perhitungan dimulai secara synchronous....");
+
+        const waktuAwal= Data.now();
+        while (Date.now()= waktuAwal < 4000){}
+
+        console.log("2.Perhitungan selesai!");
+        statusDiv.innerText="Status: Perhitungan selesai!";
+    });
+    </script>
+</body>
+</html>

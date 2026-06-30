@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Asynchronous</title>
+    <style>
+        body{
+            font-family: Arial,sans-serif;
+            margin: 30px;
+        }
+        button{
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #status{
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h2> Demo Proses Asynchronous (Non-Blocking) </h2>
+    <p>
+        Cobalah ketik sesuatu di kolom input 
+        <strong>saat proses menunggu berjalan</strong>
+        <input type="text" placeholder="Ketik do sini,web tidak akan freeze..."/>
+        <br /><br/>
+
+        <button id ="btnMulai"> Mulai Hitung</button>
+        <div id="status">Status: Siap</div>
+
+    </p>
+    <script>
+        document.getElementById("btnMulai"). addEventListener("click",()=>{
+            const statusDiv = document.getElementById("status");
+                statusDiv.innerText=
+                "Status :Sedang Memproses di latar belakang....(Coba ketik sesuatu!)";
+                console.log("1. Proses asynchronous dimulai..... ");
+
+                setTimeout(()=>{
+                    console.log("3.Waktu tunggu habis,proses selesai!");
+                    statusDiv.innerText="Status: Proses Asynchronous Selesai!";
+                
+                }, 4000);
+
+                console.log(
+                    "2.Langkah ini berjalan tanpa memedulikan langkah 1.",
+                );
+            })
+    </script>
+</body>
+</html>

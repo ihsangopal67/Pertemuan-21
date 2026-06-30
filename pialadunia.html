@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Live Score Piala Dunia 2026</title>
+    <style>
+      /* --- CSS3 STYLING (Tema Piala Dunia 2026) --- */
+      :root {
+        --primary-color: #0b4f3b; /* Hijau Tua khas turnamen */
+        --secondary-color: #d4af37; /* Emas Trofi */
+        --accent-color: #00a896; /* Biru Toska terang untuk live status */
+        --bg-color: #f0f4f1;
+        --card-bg: #ffffff;
+        --text-color: #2d3748;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        padding: 20px;
+      }
+
+      header {
+        background-color: var(--primary-color);
+        color: white;
+        text-align: center;
+        padding: 25px;
+        border-radius: 12px;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(11, 79, 59, 0.2);
+        border-bottom: 5px solid var(--secondary-color);
+      }
+
+      header h1 {
+        font-size: 2.2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      header p {
+        font-size: 1rem;
+        opacity: 0.9;
+        margin-top: 8px;
+        letter-spacing: 1px;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      /* Loading & Error State */
+      .status-message {
+        text-align: center;
+        font-size: 1.2rem;
+        padding: 30px;
+        color: #718096;
+      }
+
+      /* Match Card Grid */
+      .matches-grid {
+        display: grid;
+        gap: 20px;
+      }
+
+      /* Card Match Styling */
+      .match-card {
+        background-color: var(--card-bg);
+        border-radius: 12px;
+        padding: 25px 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        transition: all 0.2s ease-in-out;
+        border-left: 6px solid var(--primary-color);
+      }
+
+      .match-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+        border-left-color: var(--secondary-color);
+      }
+
+      /* Team Styling */
+      .team {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.15rem;
+        color: var(--text-color);
+      }
+
+      .team.home {
+        justify-self: end;
+      }
+      .team.away {
+        justify-self: start;
+      }
+
+      /* Score & Info Center */
+      .match-center {
+        text-align: center;
+        padding: 0 25px;
+      }
+
+      .score {
+        font-size: 2.2rem;
+        font-weight: 800;
+        letter-spacing: 4px;
+        color: var(--primary-color);
+        margin-bottom: 6px;
+      }
+
+      .match-status {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        background-color: #edf2f7;
+        padding: 4px 12px;
+        border-radius: 20px;
+        display: inline-block;
+        font-weight: bold;
+        color: #4a5568;
+      }
+
+      .match-status.live {
+        background-color: var(--accent-color);
+        color: white;
+        animation: pulse 1.5s infinite;
+      }
+
+      /* Animasi untuk status LIVE */
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 600px) {
+        .match-card {
+          grid-template-columns: 1fr;
+          gap: 15px;
+          border-left: none;
+          border-top: 5px solid var(--primary-color);
+        }
+        .match-card:hover {
+          border-top-color: var(--secondary-color);
+        }
+        .team.home,
+        .team.away {
+          justify-self: center;
+        }
+        .score {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    }
+    <div class="container">
+      <header>
+        <h1>World Cup 2026</h1>
+        <p>Skor Pertandingan Fase Grup</p>
+      </header>
+
+      <main id="matches-container">
+        <div class="status-message">
+          Mengambil data skor terbaru Piala Dunia...
+        </div>
+      </main>
+    </div>
+    <script>
+      const matchesData = [
+        {
+          id: 1,
+          homeTeam: "Meksiko",
+          awayTeam: "Amerika Serikat",
+          homeScore: 2,
+          awayScore: 2,
+          status: "FT",
+        },
+        {
+          id: 2,
+          homeTeam: "Kanada",
+          awayTeam: "Prancis",
+          homeScore: 1,
+          awayScore: 3,
+          status: "85'",
+        },
+        {
+          id: 3,
+          homeTeam: "Brasil",
+          awayTeam: "Argentina",
+          homeScore: 1,
+          awayScore: 0,
+          status: "HT",
+        },
+        {
+          id: 4,
+          homeTeam: "Jerman",
+          awayTeam: "Jepang",
+          homeScore: 2,
+          awayScore: 1,
+          status: "52'",
+        },
+        {
+          id: 5,
+          homeTeam: "Spanyol",
+          awayTeam: "Inggris",
+          homeScore: 0,
+          awayScore: 0,
+          status: "21:00",
+        },
+      ];
+
+      async function loadMatchScores() {
+        const container = document.getElementById("matches-container");
+
+        try {
+          await new Promise((resolve) => setTimeout(resolve, 1000));
+
+          container.innerHTML = "";
+
+          if (matchesData.length === 0) {
+            container.innerHTML =
+              '<div class="status-message">Tidak ada jadwal pertandingan Piala Dunia hari ini.</div>';
+            return;
+          }
+          const gridHtml = document.createElement("div");
+          gridHtml.className = "matches-grid";
+
+          matchesData.forEach((match) => {
+            // Penentuan status LIVE (jika mengandung tanda petik menit atau HT)
+            const isLive = match.status !== "FT" && !match.status.includes(":");
+            const statusClass = isLive ? "match-status live" : "match-status";
+
+            const matchCard = `
+        <div class="match-card">
+            <div class="team home">
+                <span>${match.homeTeam}</span>
+            </div>
+
+            <div class="match-center">
+                <div class="score">${match.homeScore} - ${match.awayScore}</div>
+                <span class="${statusClass}">${match.status}</span>
+            </div>
+
+            <div class="team away">
+                <span>${match.awayTeam}</span>
+            </div>
+        </div>
+    `;
+            gridHtml.innerHTML += matchCard;
+          });
+
+          container.appendChild(gridHtml);
+        } catch (error) {
+          console.error("Gagal memuat skor:", error);
+          container.innerHTML =
+            '<div class="status-message" style="color: #e53e3e;">Gagal memuat data pertandingan.</div>';
+        }
+      }
+
+      // Jalankan fungsi setelah halaman selesai dimuat
+      document.addEventListener("DOMContentLoaded", loadMatchScores);
+    </script>
+  </body>
+</html>
