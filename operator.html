@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Belajar Operator JavaScript</title>
+    <style>
+        body {
+            font-family: Verdana, Arial, sans-serif;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+        }
+        .kategori {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        .hasil {
+            color: #e74c3c;
+            font-family: monospace;
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Belajar Operator JavaScript</h1>
+        <p>Hasil eksekusi kode bisa dilihat di bawah ini:</p>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const outputDiv = document.getElementById('output');
+
+        function tampilkan(penjelasan, ekspresi, hasil) {
+            outputDiv.innerHTML += `<p>• ${penjelasan} (<code style="background:#eee; padding:2px 5px;">${ekspresi}</code>) &rarr; <span class="hasil">${hasil}</span></p>`;
+        }
+
+        function buatJudul(judul) {
+            outputDiv.innerHTML += `<div class="kategori">${judul}</div>`;
+        }
+
+        buatJudul("<h3>1. Operator Aritmatika</h3>");
+
+        let a = 10;
+        let b = 3;
+
+        tampilkan("Penjumlahan (+)", "10 + 3", a + b);
+        tampilkan("Pengurangan (-)", "10 - 3", a - b);
+        tampilkan("Perkalian (*)", "10 * 3", a * b);
+        tampilkan("Pembagian (/)", "10 / 3", a / b);
+        tampilkan("Sisa Bagi / Modulo (%)", "10 % 3", a % b);
+
+        buatJudul("<h3>2. Operator Assignment</h3>");
+
+        let x = 5;
+        tampilkan("Isi nilai awal x", "x = 5", x);
+
+        x += 3;
+        tampilkan("Tambah lalu isi (+=)", "x += 3", x);
+
+        
+        buatJudul("<h3>3. Operator Perbandingan</h3>");
+
+        let nilaiUjian = 80;
+        let KKM = 75;
+
+        tampilkan("Lebih besar dari (>)", "80 > 75", nilaiUjian > KKM);
+        tampilkan("Lebih kecil dari (<)", "80 < 75", nilaiUjian < KKM);
+
+        
+        tampilkan("Sama dengan (==)", "'5' == 5", '5' == 5);
+        tampilkan("Sama dengan Identik (===)", "'5' === 5", '5' === 5);
+
+        
+        buatJudul("<h3>4. Operator Logika</h3>");
+
+        let punyaTiket = true;
+        let pakaiSepatu = false;
+
+        
+        tampilkan("Logika AND (&&)", "true && false", punyaTiket && pakaiSepatu);
+
+       
+        tampilkan("Logika OR (||)", "true || false", punyaTiket || pakaiSepatu);
+
+        
+        tampilkan("Logika NOT (!)", "!true", !punyaTiket);
+
+    </script>
+</body>
+</html>
